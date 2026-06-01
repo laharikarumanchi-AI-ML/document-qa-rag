@@ -34,6 +34,9 @@ include = ["ragqa*"]
 "*" = ["prompts/*.txt"]
 
 [tool.pytest.ini_options]
-addopts = "-ra"
+addopts = "-ra -m 'not slow'"
 testpaths = ["tests"]
 log_cli = false
+markers = [
+    "slow: tests that download the real embedding model (run with: pytest -m slow)",
+]
