@@ -1,0 +1,35 @@
+[project]
+name = "ragqa"
+version = "0.1.0"
+description = "Document Q&A assistant: retrieval-augmented chatbot over PDFs with source citations."
+requires-python = ">=3.11"
+dependencies = [
+    "sentence-transformers>=3.0.0",
+    "faiss-cpu>=1.8.0",
+    "pdfplumber>=0.11.0",
+    "requests>=2.31.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+demo = ["streamlit>=1.31.0"]
+dev = ["pytest>=8.0.0", "pytest-mock>=3.12.0"]
+
+[project.scripts]
+ragqa = "ragqa.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ragqa*"]
+
+[tool.setuptools.package-data]
+"*" = ["prompts/*.txt"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+log_cli = false

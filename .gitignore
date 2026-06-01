@@ -1,0 +1,22 @@
+# Secrets
+.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+.claude/
+
+# Generated artifacts
+indexes/             # local FAISS indexes
+demo/pdfs/*.pdf      # vetted demo PDFs are added by hand, not committed
+!demo/pdfs/.gitkeep
