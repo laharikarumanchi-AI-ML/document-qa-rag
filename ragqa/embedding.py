@@ -20,6 +20,12 @@ class Embedder:
         self._model: SentenceTransformer | None = None
 
     @property
+    def model_name(self) -> str:
+        """The HF identifier of the underlying model. Saved into Index
+        metadata so a query-time loader can sanity-check it matches."""
+        return self._model_name
+
+    @property
     def model(self) -> SentenceTransformer:
         """Loaded on first access. Subsequent calls reuse the same instance."""
         if self._model is None:
